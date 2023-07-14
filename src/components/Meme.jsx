@@ -3,16 +3,13 @@ import memesData from '../memesData';
 import './meme.css';
 
 const Meme = () => {
-  const [image, setImage] = useState();
+  const [imageUrl, setImageUrl] = useState('');
 
   const getImage = (e) => {
     e.preventDefault();
-    setImage(() => {
-      let memeUrl;
-      const memes = memesData.data.memes;
-      const random = Math.floor(Math.random() * memes.length);
-      return (memeUrl = memes[random].url);
-    });
+    const memes = memesData.data.memes;
+    const random = Math.floor(Math.random() * memes.length);
+    setImageUrl(memes[random].url);
   };
 
   return (
@@ -24,7 +21,7 @@ const Meme = () => {
           Get a new meme image 🖼
         </button>
       </form>
-      {image && <img src={image} className="meme-image" alt="memes" />}
+      {imageUrl && <img src={imageUrl} className="meme-image" alt="memes" />}
     </main>
   );
 };
