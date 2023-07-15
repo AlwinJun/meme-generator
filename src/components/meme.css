@@ -28,13 +28,6 @@ main {
   color: #222;
 }
 
-.form__button {
-  grid-column: 1 / span 2;
-  border-radius: 5px;
-  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
-  color: white;
-}
-
 .meme-image {
   width: 100%;
 }
