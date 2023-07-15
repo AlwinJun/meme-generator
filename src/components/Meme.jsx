@@ -3,13 +3,26 @@ import memesData from '../memesData';
 import './meme.css';
 
 const Meme = () => {
-  const [imageUrl, setImageUrl] = useState('');
+  const [meme, setMeme] = useState({
+    topText: '',
+    bottomText: '',
+    randomImage: 'http://i.imgflip.com/1bij.jpg',
+  });
+
+  const [allMemeImages, setAllMemeImages] = useState(memesData);
 
   const getImage = (e) => {
     e.preventDefault();
-    const memes = memesData.data.memes;
+    const memes = allMemeImages.data.memes;
     const random = Math.floor(Math.random() * memes.length);
-    setImageUrl(memes[random].url);
+    const memeUrl = memes[random].url;
+    // console.log(memeUrl);
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        randomImage: memeUrl,
+      };
+    });
   };
 
   return (
@@ -21,7 +34,7 @@ const Meme = () => {
           Get a new meme image 🖼
         </button>
       </form>
-      {imageUrl && <img src={imageUrl} className="meme-image" alt="memes" />}
+      <img src={meme.randomImage} className="meme-image" alt="memes" />
     </main>
   );
 };
