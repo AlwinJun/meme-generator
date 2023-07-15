@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from './Button';
 import memesData from '../memesData';
 import './meme.css';
 
@@ -30,9 +31,7 @@ const Meme = () => {
       <form className="form">
         <input type="text" placeholder="Top text" className="form__input" />
         <input type="text" placeholder="Bottom text" className="form__input" />
-        <button className="form__button" onClick={getImage}>
-          Get a new meme image 🖼
-        </button>
+        <Button handleClick={getImage} />
       </form>
       <img src={meme.randomImage} className="meme-image" alt="memes" />
     </main>
