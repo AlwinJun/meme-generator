@@ -31,3 +31,29 @@ main {
 .meme-image {
   width: 100%;
 }
+
+.meme {
+  position: relative;
+}
+
+.meme__text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000,
+    -3px 3px 0 #000;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.top {
+  top: 0;
+}

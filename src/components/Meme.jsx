@@ -33,7 +33,11 @@ const Meme = () => {
         <input type="text" placeholder="Bottom text" className="form__input" />
         <Button handleClick={getImage} />
       </form>
-      <img src={meme.randomImage} className="meme-image" alt="memes" />
+      <div className="meme">
+        <img src={meme.randomImage} className="meme-image" alt="memes" />
+        <p className="meme__text top">Alwin</p>
+        <p className="meme__text bottom">Jun</p>
+      </div>
     </main>
   );
 };
