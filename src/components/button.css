@@ -1,6 +1,13 @@
 .form__button {
-  grid-column: 1 / span 2;
+  grid-column: 1fr;
   border-radius: 5px;
   background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
   color: white;
+  padding: 0.4rem 0;
+}
+
+@media (min-width: 550px) {
+  .form__button {
+    grid-column: 1 / span 2;
+  }
 }
