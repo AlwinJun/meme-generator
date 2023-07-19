@@ -17,7 +17,6 @@ const Meme = () => {
     const memes = allMemeImages.data.memes;
     const random = Math.floor(Math.random() * memes.length);
     const memeUrl = memes[random].url;
-    // console.log(memeUrl);
     setMeme((prevMeme) => {
       return {
         ...prevMeme,
@@ -26,17 +25,41 @@ const Meme = () => {
     });
   };
 
+  const setImageText = (e) => {
+    const { name, value } = e.target;
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        [name]: value,
+      };
+    });
+  };
+
   return (
     <main>
       <form className="form">
-        <input type="text" placeholder="Top text" className="form__input" />
-        <input type="text" placeholder="Bottom text" className="form__input" />
+        <input
+          className="form__input"
+          type="text"
+          onChange={setImageText}
+          name="topText"
+          value={meme.topText}
+          placeholder="Top text"
+        />
+        <input
+          className="form__input"
+          type="text"
+          onChange={setImageText}
+          name="bottomText"
+          value={meme.bottomText}
+          placeholder="Bottom text"
+        />
         <Button handleClick={getImage} />
       </form>
       <div className="meme">
         <img src={meme.randomImage} className="meme-image" alt="memes" />
-        <p className="meme__text top">Alwin</p>
-        <p className="meme__text bottom">Jun</p>
+        <p className="meme__text top">{meme.topText}</p>
+        <p className="meme__text bottom">{meme.bottomText}</p>
       </div>
     </main>
   );
