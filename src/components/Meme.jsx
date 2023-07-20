@@ -13,11 +13,13 @@ const Meme = () => {
   const [allMemes, setAllMemes] = useState([]);
 
   useEffect(() => {
-    (async () => {
+    async function getMemes() {
       const response = await fetch('https://api.imgflip.com/get_memes');
       const memeObj = await response.json();
       setAllMemes(memeObj.data.memes);
-    })();
+    }
+
+    getMemes();
   }, []);
 
   const getImage = (e) => {
