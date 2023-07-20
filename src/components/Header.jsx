@@ -4,8 +4,10 @@ import './header.css';
 const Header = () => {
   return (
     <header className="header">
-      <img src={trollFace} className="header__img" />
-      <h1 className="header__title">Meme Generator</h1>
+      <div className="header__title">
+        <img src={trollFace} className="header__img" />
+        <h1 className="header__title">Meme of the Day</h1>
+      </div>
       <p className="header__project">React Project 3</p>
     </header>
   );
